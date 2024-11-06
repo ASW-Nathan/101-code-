@@ -50,6 +50,7 @@ void initialize() {
       Auton("Combine all 3 movements", combining_movements),
       Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
       Auton("drive/n/score", auton_ring_score),
+      Auton("spin in circle", auton_donut),
   });
 
   // Initialize chassis and auton selector

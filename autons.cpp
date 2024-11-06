@@ -9,7 +9,8 @@
 const int DRIVE_SPEED = 110;
 const int TURN_SPEED = 90;
 const int SWING_SPEED = 90;
-
+const int TILTER_SPEED =110;
+const int INTAKE_SPEED =120;
 ///
 // Constants
 ///
@@ -225,4 +226,55 @@ void interfered_example() {
 void auton_ring_score(){
   chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
+}
+
+void auton_donuts(){
+  chassis.pid_swing_set(ez::RIGHT_SWING, -360_deg, SWING_SPEED, 127);
+  chassis.pid_wait();
+}
+
+void auton_score(){
+  chassis.pid_drive_set(DRIVE_SPEED, 110);
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, TURN_SPEED, 95);
+  chassis.pid_drive_set(DRIVE_SPEED, 127);
+}
+
+void intake_control(){
+  intake.move_velocity(100);
+}
+
+void tilter_control(){
+  tilter.move_velocity(100);
+}
+
+// THIS IS MY AUTON PLEASE NO DELETE NATHAN
+
+void auton_grappler(){
+  chassis.pid_drive_set(32.25_in, DRIVE_SPEED, true);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(180_deg, TURN_SPEED, true);
+  chassis.pid_wait_quick();
+  chassis.pid_drive_set(-2_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  tilter.move(TILTER_SPEED);
+  tilter.get_brake_mode(MOTOR_BRAKE_HOLD);
+
+  chassis.pid_wait();
+  chassis.pid_turn_set(45_deg, TURN_SPEED, true);
+  chassis.pid_wait();
+  chassis.pid_drive_set(14.9_in, DRIVE_SPEED, true);
+
+  intake.move_velocity(110); // WHERE I LEFT OFF 11/03/24
+
+ 
+
+
+
+
+
+
+
+
 }

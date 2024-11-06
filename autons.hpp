@@ -16,3 +16,4 @@ void interfered_example();
 void default_constants();
 
 void auton_ring_score();
+void auton_donut();
